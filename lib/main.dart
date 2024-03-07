@@ -29,7 +29,7 @@ class _resumebuliderAPPState extends State<resumebuliderAPP> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'cvDargon',
-      initialRoute: '/home',
+      initialRoute: '/',
       routes: {
         '/':(context) => slashscreen(),
         '/home':(context)=>homescreen()
