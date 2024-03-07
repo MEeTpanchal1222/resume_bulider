@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:resume_bulider/view/homescreen.dart';
 class slashscreen extends StatelessWidget {
   const slashscreen({super.key});
 
@@ -24,23 +25,11 @@ class _HomeScreenState extends State<SlashScreen> {
     Timer(
     Duration(seconds: 1),
     () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-    builder: (BuildContext context) => SlashScreen(),)));
+    builder: (BuildContext context) => homescreen(),)));
     },
-    child:Center(
-    child: Container(
-    alignment: Alignment.center,
 
-    child: Container(
-       height: double.infinity,
-        width: double.infinity,
-    child:Center(
-    child: Image.asset('assest/slash.jpg'),
-         )
-
+    child: Image.asset('assest/slash.jpg',height: double.infinity,width: double.infinity,),
          ),
-       ),
-      ),
-      ),
-    );
+       );
   }
 }

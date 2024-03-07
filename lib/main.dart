@@ -4,7 +4,7 @@ import 'package:resume_bulider/view/homescreen.dart';
 import 'package:resume_bulider/view/slashscreen.dart';
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Color(0xFF181A20),
+    statusBarColor: Color(0xFF50457d),
   ));
   runApp(Resumebuiderapp());
 }
