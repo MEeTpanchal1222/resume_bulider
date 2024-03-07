@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:resume_bulider/view/homescreen.dart';
+import 'package:resume_bulider/view/slashscreen.dart';
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Color(0xFF181A20),
@@ -28,9 +29,10 @@ class _resumebuliderAPPState extends State<resumebuliderAPP> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'cvDargon',
-      initialRoute: '/',
+      initialRoute: '/home',
       routes: {
-        '/':(context) => homescreen(),
+        '/':(context) => slashscreen(),
+        '/home':(context)=>homescreen()
       },
     );
   }
