@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:resume_bulider/view/homescreen.dart';
+import 'package:resume_bulider/view/section.dart';
 class slashscreen extends StatelessWidget {
   const slashscreen({super.key});
 
@@ -25,7 +26,7 @@ class _HomeScreenState extends State<SlashScreen> {
     Timer(
     Duration(seconds: 1),
     () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-    builder: (BuildContext context) => homescreen(),)));
+    builder: (BuildContext context) => bottemscreen(),)));
     },
 
     child: Image.asset('assest/slash.jpg',height: double.infinity,width: double.infinity,),

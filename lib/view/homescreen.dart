@@ -1,7 +1,4 @@
- //  import 'package:curved_nav_bar/curved_bar/curved_action_bar.dart';
- //  import 'package:curved_nav_bar/fab_bar/fab_bottom_app_bar_item.dart';
- // import 'package:curved_nav_bar/flutter_curved_bottom_nav_bar.dart';
- import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 class homescreen extends StatelessWidget {
@@ -36,6 +33,8 @@ class _HomeScreenState extends State<HomeScreen> {
          SizedBox(width:5,),
        ],
      ),
+     /// creved screen
+
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -237,6 +236,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Image.asset('assest/tips/tips_4.png',fit: BoxFit.cover,)),
               ],
             ),
+            SizedBox(height: 10,),
+            Row(
+              children: [
+                SizedBox(width: 27,),
+                Text('Services',style: TextStyle(fontSize: 30),),
+                SizedBox(width: 150,),
+                Text('See more',style: TextStyle(fontSize: 20,color: Color(0XFF7f75a6)),),
+                Icon(Icons.arrow_forward_ios_sharp)
+              ],
+            ),
+            Row(
+              children: [
+
+              ],
+            )
           ],
         ),
       ),
