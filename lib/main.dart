@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:resume_bulider/view/homescreen.dart';
+import 'package:resume_bulider/view/section.dart';
 import 'package:resume_bulider/view/slashscreen.dart';
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -32,7 +33,8 @@ class _resumebuliderAPPState extends State<resumebuliderAPP> {
       initialRoute: '/',
       routes: {
         '/':(context) => slashscreen(),
-        '/home':(context)=>homescreen()
+        '/bottem' :(context) =>  bottemscreen(),
+        '/home':(context)=>homescreen(),
       },
     );
   }

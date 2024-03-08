@@ -24,68 +24,94 @@ class _SectionState extends State<BottemScreen> {
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
-        bottomNavigationBar:CurvedNavBar(
-          actionButton: CurvedActionBar(
-              onTab: (value) {
-                /// perform action here
-                print(value);
-              },
-              activeIcon: Container(
-                padding: EdgeInsets.all(8),
-                decoration:
-                BoxDecoration(color: Color(0xff6b58b1), shape: BoxShape.circle),
-                child: Icon(
-                  Icons.camera_alt,
-                  size: 50,
-                  color: Colors.orange,
+    return SafeArea(
+      child: Scaffold(
+          bottomNavigationBar:CurvedNavBar(
+            actionButton: CurvedActionBar(
+                onTab: (value) {
+                  /// perform action here
+                  print(value);
+                },
+                activeIcon: Container(
+                  padding: EdgeInsets.all(10),
+                  decoration:
+                  BoxDecoration(color: Color(0xff6b58b1), shape: BoxShape.circle),
+                  child: Icon(
+                    Icons.downloading_sharp,
+                    size: 40,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              inActiveIcon: Container(
-                padding: EdgeInsets.all(8),
-                decoration:
-                BoxDecoration(color: Colors.white70, shape: BoxShape.circle),
-                child: Icon(
-                  Icons.camera_alt_outlined,
-                  size: 50,
-                  color: Colors.orange,
+                inActiveIcon: Container(
+                  padding: EdgeInsets.all(18),
+                  decoration:
+                  BoxDecoration(color: Color(0XFF6a5ca8), shape: BoxShape.circle),
+                  child: Icon(
+                    Icons.remove_red_eye,
+                    size: 30,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              text: "Camera"),
-          activeColor: Colors.purple,
-          navBarBackgroundColor: Colors.white,
-          inActiveColor: Colors.black45,
-          appBarItems: [
-            FABBottomAppBarItem(
-                activeIcon: Icon(
-                  Icons.home,
-                  color: Colors.purple,
-                ),
-                inActiveIcon: Icon(
-                  Icons.home,
-                  color: Colors.black26,
-                ),
-                text: 'Home'),
-            FABBottomAppBarItem(
-                activeIcon: Icon(
-                  Icons.wallet_giftcard,
-                  color: Colors.purple,
-                ),
-                inActiveIcon: Icon(
-                  Icons.wallet_giftcard,
-                  color: Colors.black26,
-                ),
-                text: 'Wallet'),
-          ],
-          bodyItems: [
-            homescreen(),
-            slashscreen()
-          ],
-          actionBarView: Container(
-            height: 50,
-            color: Colors.transparent,
+                text: "Preview"),
+            activeColor: Color(0XFF6a5ca8),
+            navBarBackgroundColor: Colors.white,
+            inActiveColor: Colors.black45,
+            appBarItems: [
+              FABBottomAppBarItem(
+                  activeIcon: Icon(
+                    Icons.home,
+                    color: Color(0XFF6a5ca8),
+                  ),
+                  inActiveIcon: Icon(
+                    Icons.home,
+                    color: Colors.black54,
+                  ),
+                  text: 'Home'),
+              FABBottomAppBarItem(
+                  activeIcon: Icon(
+                    Icons.edit,
+                    color: Color(0XFF6a5ca8),
+                  ),
+                  inActiveIcon: Icon(
+                    Icons.edit,
+                    color: Colors.black54,
+                  ),
+                  text: 'Section'),
+              FABBottomAppBarItem(
+                  activeIcon: Icon(
+                    Icons.wallet_giftcard,
+                    color: Colors.purple,
+                  ),
+                  inActiveIcon: Icon(
+                    Icons.wallet_giftcard,
+                    color: Colors.black54,
+                  ),
+                  text: 'Wallet'),
+              FABBottomAppBarItem(
+                  activeIcon: Icon(
+                    Icons.wallet_giftcard,
+                    color: Colors.purple,
+                  ),
+                  inActiveIcon: Icon(
+                    Icons.wallet_giftcard,
+                    color: Colors.black54,
+                  ),
+                  text: 'Wallet'),
+
+
+            ],
+            bodyItems: [
+              homescreen(),
+              slashscreen(),
+              slashscreen(),
+              slashscreen(),
+            ],
+            actionBarView: Container(
+              height: 50,
+              color: Colors.transparent,
+            ),
           ),
-        ),
+      ),
     );
   }
 }

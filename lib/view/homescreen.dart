@@ -32,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
          Icon(Icons.check_circle_rounded,color: Colors.white,size: 35,),
          SizedBox(width:5,),
        ],
+       elevation: 4,
      ),
      /// creved screen
 
