@@ -243,14 +243,199 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(width: 27,),
                 Text('Services',style: TextStyle(fontSize: 30),),
                 SizedBox(width: 150,),
-                Text('See more',style: TextStyle(fontSize: 20,color: Color(0XFF7f75a6)),),
+                Text('See ALL',style: TextStyle(fontSize: 20,color: Color(0XFF7f75a6)),),
                 Icon(Icons.arrow_forward_ios_sharp)
               ],
             ),
-            Row(
-              children: [
+            SizedBox(height: 10,),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  SizedBox(width: 20,),
+                       Container(
+                         height: 400,
+                         width: 250,
+                         decoration: BoxDecoration(
+                           border: Border.all(color: Colors.grey.shade200,width: 1,),
+                           borderRadius: BorderRadius.circular(30)
+                         ),
+                         child: Column(
+                           mainAxisAlignment: MainAxisAlignment.center,
+                           children: [
+                             //
+                               CircleAvatar(backgroundColor: Color(0xfff8f8f8) ,radius: 90,child: Image.asset('assest/fee/fee1.png',width: 100,),),
+                             SizedBox(height: 20,),
+                             Text('LIFETIME ACCESS',style: TextStyle(letterSpacing: 1.5,fontWeight: FontWeight.bold),),
+                             SizedBox(height: 30,),
+                             Padding(
+                               padding: const EdgeInsets.all(8.0),
+                               child: Text('Buy our 10 years pro subscripaction \n and get access to all our periuam + \n        prodesign and features' ,style: TextStyle(color: Colors.grey),),
+                             ),
+                             Text('₹700'),
+                             Padding(
+                               padding: const EdgeInsets.fromLTRB(15, 5, 15, 0),
+                               child: Divider(),
+                             ),
+                             Row(
+                               mainAxisAlignment: MainAxisAlignment.center,
+                               children: [
+                                 Text('7983  ',style: TextStyle(color: Colors.green),),
+                                 Text('People Bought this',style: TextStyle(color: Colors.grey.shade700),),
+                               ],
+                             )
 
-              ],
+                           ],
+                         ),
+                       ),
+                  SizedBox(width: 15,),
+                  Container(
+                    height: 400,
+                    width: 250,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey.shade200,width: 1,),
+                        borderRadius: BorderRadius.circular(30)
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        //
+                        CircleAvatar(backgroundColor: Color(0xfff8f8f8) ,radius: 90,child: Image.asset('assest/fee/fee2.png',width: 100,),),
+                        SizedBox(height: 20,),
+                        Text('NAME CHANGE REQUEST',style: TextStyle(letterSpacing: 1.5,fontWeight: FontWeight.bold),),
+                        SizedBox(height: 30,),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Buy our 10 years pro subscripaction \n and get access to all our periuam + \n        prodesign and features' ,style: TextStyle(color: Colors.grey),),
+                        ),
+                        Text('₹99'),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 5, 15, 0),
+                          child: Divider(),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('1147  ',style: TextStyle(color: Colors.green),),
+                            Text('People Bought this',style: TextStyle(color: Colors.grey.shade700),),
+                          ],
+                        )
+
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 15,),
+                  Container(
+                    height: 400,
+                    width: 250,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey.shade200,width: 1,),
+                        borderRadius: BorderRadius.circular(30)
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        //
+                        CircleAvatar(backgroundColor: Color(0xfff8f8f8) ,radius: 90,child: Image.asset('assest/fee/fee3.png',width: 100,),),
+                        SizedBox(height: 20,),
+                        Text('PRO SUBSCRIPTION',style: TextStyle(letterSpacing: 1.5,fontWeight: FontWeight.bold),),
+                        SizedBox(height: 30,),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Buy our 10 years pro subscripaction \n and get access to all our periuam + \n        prodesign and features' ,style: TextStyle(color: Colors.grey),),
+                        ),
+                        Text('₹499'),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 5, 15, 0),
+                          child: Divider(),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('27140  ',style: TextStyle(color: Colors.green),),
+                            Text('People Bought this',style: TextStyle(color: Colors.grey.shade700),),
+                          ],
+                        )
+
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 15,),
+                  Container(
+                    height: 400,
+                    width: 250,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey.shade200,width: 1,),
+                        borderRadius: BorderRadius.circular(30)
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        //
+                        CircleAvatar(backgroundColor: Color(0xfff8f8f8) ,radius: 90,child: Image.asset('assest/fee/fee4.png',width: 100,),),
+                        SizedBox(height: 20,),
+                        Text('PROOFREADING',style: TextStyle(letterSpacing: 1.5,fontWeight: FontWeight.bold),),
+                        SizedBox(height: 30,),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Buy our 10 years pro subscripaction \n and get access to all our periuam + \n        prodesign and features' ,style: TextStyle(color: Colors.grey),),
+                        ),
+                        Text('₹449'),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 5, 15, 0),
+                          child: Divider(),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('7014  ',style: TextStyle(color: Colors.green),),
+                            Text('People Bought this',style: TextStyle(color: Colors.grey.shade700),),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 15,),
+                  Container(
+                    height: 400,
+                    width: 250,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey.shade200,width: 1,),
+                        borderRadius: BorderRadius.circular(30)
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        //
+                        CircleAvatar(backgroundColor: Color(0xfff8f8f8) ,radius: 90,child: Image.asset('assest/fee/fee5.png',width: 100,),),
+                        SizedBox(height: 20,),
+                        Text('QUICK SUBSCRIPITIONS',style: TextStyle(letterSpacing: 1.5,fontWeight: FontWeight.bold),),
+                        SizedBox(height: 30,),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Buy our 10 years pro subscripaction \n and get access to all our periuam + \n        prodesign and features' ,style: TextStyle(color: Colors.grey),),
+                        ),
+                        Text('₹199'),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 5, 15, 0),
+                          child: Divider(),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('33478  ',style: TextStyle(color: Colors.green),),
+                            Text('People Bought this',style: TextStyle(color: Colors.grey.shade700),),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20,),
+            SizedBox(
+              child: Image.asset('assest/artical.png'),
             )
           ],
         ),

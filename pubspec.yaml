@@ -69,6 +69,7 @@ flutter:
     - assest/section_logo/
     - assest/tips/
     - assest/toturial/
+    - assest/fee/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

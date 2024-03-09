@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:resume_bulider/view/homescreen.dart';
 import 'package:resume_bulider/view/slashscreen.dart';
 
+import 'mysection.dart';
+
 class bottemscreen extends StatelessWidget {
   const bottemscreen({super.key});
 
@@ -79,21 +81,21 @@ class _SectionState extends State<BottemScreen> {
                   text: 'Section'),
               FABBottomAppBarItem(
                   activeIcon: Icon(
-                    Icons.wallet_giftcard,
-                    color: Colors.purple,
+                    Icons.photo_rounded,
+                    color:Color(0XFF6a5ca8),
                   ),
                   inActiveIcon: Icon(
-                    Icons.wallet_giftcard,
+                    Icons.photo_rounded,
                     color: Colors.black54,
                   ),
                   text: 'Wallet'),
               FABBottomAppBarItem(
                   activeIcon: Icon(
-                    Icons.wallet_giftcard,
-                    color: Colors.purple,
+                    Icons.account_circle_rounded,
+                    color: Color(0XFF6a5ca8),
                   ),
                   inActiveIcon: Icon(
-                    Icons.wallet_giftcard,
+                    Icons.account_circle_rounded,
                     color: Colors.black54,
                   ),
                   text: 'Wallet'),
@@ -102,7 +104,7 @@ class _SectionState extends State<BottemScreen> {
             ],
             bodyItems: [
               homescreen(),
-              slashscreen(),
+              editscreen(),
               slashscreen(),
               slashscreen(),
             ],
