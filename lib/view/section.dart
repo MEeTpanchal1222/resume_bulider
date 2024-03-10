@@ -88,7 +88,7 @@ class _SectionState extends State<BottemScreen> {
                     Icons.photo_rounded,
                     color: Colors.black54,
                   ),
-                  text: 'Wallet'),
+                  text: 'Designs'),
               FABBottomAppBarItem(
                   activeIcon: Icon(
                     Icons.account_circle_rounded,
@@ -98,7 +98,7 @@ class _SectionState extends State<BottemScreen> {
                     Icons.account_circle_rounded,
                     color: Colors.black54,
                   ),
-                  text: 'Wallet'),
+                  text: 'Account'),
 
 
             ],
