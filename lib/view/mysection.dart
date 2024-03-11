@@ -133,7 +133,7 @@ class _EDITScreenState extends State<EDITScreen> {
                 section.length,
                     (index) => InkWell(
                       onTap: () {
-                      Navigator.pushNamed(context, '/');
+                      Navigator.pushNamed(context, '/input',arguments: index);
                       },
                         child: top(context, section[index]['img'], section[index]['Dec'])),
               ),
@@ -161,7 +161,7 @@ Widget top(BuildContext context,String img,String dec)
       child: Row(
         children: [
           SizedBox(width: 30,),
-          SizedBox(child: Image.asset(img),width: 50,height: 50,),
+          SizedBox(child: Image.asset(img),width: 55,height: 35,),
           SizedBox(width: 30,),
           Text(dec,style: TextStyle(fontSize: 22),),
         ],
