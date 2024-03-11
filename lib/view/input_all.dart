@@ -1,4 +1,7 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class inputallscreen extends StatelessWidget {
   const inputallscreen({Key? key});
@@ -6,16 +9,6 @@ class inputallscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final index = ModalRoute.of(context)?.settings.arguments as int;
-    Future<void> setimage()
-    async {
-      xfile? Image = await imagepicker.pickImage(Source : Imagesource.gallary);
-      GestureDetector(
-        onTap: () {
-
-
-        },
-      );
-    }
     return InputAllScreen(index: index);
   }
 }
@@ -29,7 +22,7 @@ class InputAllScreen extends StatefulWidget {
   State<InputAllScreen> createState() => _InputAllScreenState();
 }
  TextEditingController Txtemail = TextEditingController();
- Imagepicker imagepicker = Imagepicker();
+
 
 class _InputAllScreenState extends State<InputAllScreen> {
   @override
@@ -174,6 +167,9 @@ class _InputAllScreenState extends State<InputAllScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            CircleAvatar(
+                              backgroundImage: (imagepath)?FileImage(imagepath):null,
+                            ),
                             Icon(Icons.image,color: Color(0XFF6a5ca8),size: 50,),
                             SizedBox(width: 20,),
                             Text('Tap to add your \n profile image',style: TextStyle(color: Color(0XFF6a5ca8),fontSize: 30),),
@@ -258,7 +254,20 @@ class _InputAllScreenState extends State<InputAllScreen> {
         ),
       ),
     );
+
   }
+  ImagePicker Imagepicker = ImagePicker();
+  Future<void> setimage()
+  async {
+    XFile? Image = await Imagepicker.pickImage(source: ImageSource.gallery);
+    setState(() {
+
+      imagepath = File(image!.path)
+    });
+
+  }
+  ImagePicker imagePicker = Imagepicker();
+  File? imagepath;
 }
 
 
