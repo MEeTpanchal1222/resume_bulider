@@ -1,4 +1,5 @@
-import 'dart:html';
+
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -33,20 +34,37 @@ class _InputAllScreenState extends State<InputAllScreen> {
         backgroundColor: Color(0XFF6a5ca8),
         actions: [
           Text(
-            (widget.index == 0) ? 'Basic Info' :(widget.index == 1) ? 'Contact Details' :(widget.index == 2) ? 'Profile Image':(widget.index == 3) ? 'Career Summary':(widget.index == 4) ? 'Position Of Responsibility':(widget.index == 5) ? 'Internship':(widget.index == 6) ? 'professional qualification':(widget.index == 7) ? 'educational background':(widget.index == 8) ? 'Certificates':(widget.index == 9) ? 'Academic projects':(widget.index == 10) ? 'Achievements':(widget.index == 11) ? 'Co-Curricular Activites':(widget.index == 12) ? 'Technical Skills':(widget.index == 13) ? 'Soft Skills':(widget.index == 14) ? 'Interests':(widget.index == 15) ? 'Spoken languages':(widget.index == 16) ? 'Preferences':'',// Access index using widget.index
+            (widget.index == 0) ? 'Basic Info' : (widget.index == 1)
+                ? 'Contact Details'
+                : (widget.index == 2) ? 'Profile Image' : (widget.index == 3)
+                ? 'Career Summary'
+                : (widget.index == 4) ? 'Position Of Responsibility' : (widget
+                .index == 5) ? 'Internship' : (widget.index == 6)
+                ? 'professional qualification'
+                : (widget.index == 7) ? 'educational background' : (widget
+                .index == 8) ? 'Certificates' : (widget.index == 9)
+                ? 'Academic projects'
+                : (widget.index == 10) ? 'Achievements' : (widget.index == 11)
+                ? 'Co-Curricular Activites'
+                : (widget.index == 12) ? 'Technical Skills' : (widget.index ==
+                13) ? 'Soft Skills' : (widget.index == 14)
+                ? 'Interests'
+                : (widget.index == 15) ? 'Spoken languages' : (widget.index ==
+                16) ? 'Preferences' : '', // Access index using widget.index
             style: TextStyle(
               color: Colors.white,
               letterSpacing: 1.5,
               fontSize: 20,
             ),
           ),
-          SizedBox(width: (widget.index==4  || widget.index == 7 ||widget.index ==6)?40:(widget.index == 14)?120:100),
+          SizedBox(width: (widget.index == 4 || widget.index == 7 ||
+              widget.index == 6) ? 40 : (widget.index == 14) ? 120 : 100),
           Icon(Icons.edit, color: Colors.white, size: 35),
           SizedBox(width: 8),
         ],
         elevation: 4,
       ),
-    body: SingleChildScrollView(
+      body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
@@ -58,216 +76,265 @@ class _InputAllScreenState extends State<InputAllScreen> {
                   Container(
                     height: 50,
                     width: 100,
-                    decoration:BoxDecoration(color: Colors.transparent,border: Border.all(color:  Color(0xff7267af),width: 2),borderRadius: BorderRadius.circular(15),
+                    decoration: BoxDecoration(color: Colors.transparent,
+                      border: Border.all(color: Color(0xff7267af), width: 2),
+                      borderRadius: BorderRadius.circular(15),
                       //boxShadow: [
                       //BoxShadow(color: Colors.grey,offset:Offset(0, 2),blurRadius: 8 ),]
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.book,color: Color(0xff7267af),),
+                        Icon(Icons.book, color: Color(0xff7267af),),
                         SizedBox(width: 10,),
-                        Text('GUIDE',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 15),)
+                        Text('GUIDE', style: TextStyle(color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),)
                       ],
                     ),
                   ),
                   Container(
                     height: 50,
                     width: 120,
-                    decoration:BoxDecoration(color: Colors.transparent,border: Border.all(color:  Color(0xff7267af),width: 2),borderRadius: BorderRadius.circular(15),
+                    decoration: BoxDecoration(color: Colors.transparent,
+                      border: Border.all(color: Color(0xff7267af), width: 2),
+                      borderRadius: BorderRadius.circular(15),
                       //boxShadow: [
                       //BoxShadow(color: Colors.grey,offset:Offset(0, 2),blurRadius: 8 ),]
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.star_border,color: Color(0xff7267af),),
+                        Icon(Icons.star_border, color: Color(0xff7267af),),
                         SizedBox(width: 10,),
-                        Text('DEFAULT',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 15),)
+                        Text('DEFAULT', style: TextStyle(color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),)
                       ],
                     ),
                   ),
                   Container(
                     height: 50,
                     width: 100,
-                    decoration:BoxDecoration(color: Colors.transparent,border: Border.all(color:  Color(0xff7267af),width: 2),borderRadius: BorderRadius.circular(15),
+                    decoration: BoxDecoration(color: Colors.transparent,
+                      border: Border.all(color: Color(0xff7267af), width: 2),
+                      borderRadius: BorderRadius.circular(15),
                       //boxShadow: [
                       //BoxShadow(color: Colors.grey,offset:Offset(0, 2),blurRadius: 8 ),]
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.headphones,color: Color(0xff7267af),),
+                        Icon(Icons.headphones, color: Color(0xff7267af),),
                         SizedBox(width: 10,),
-                        Text('CHAT',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 15),)
+                        Text('CHAT', style: TextStyle(color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),)
                       ],
                     ),
                   ),
                 ],
               ),
             ),
-           IndexedStack(
-             index: widget.index,
-             children: [
-               Container(
-                 height: 800,
-                 width: 361,
-                 decoration: BoxDecoration(color: Colors.white),
-                 child: Column(
-                   children: [
-                     SizedBox(height: 30,),
-                     Row(
-                       children: [
-                         SizedBox(width: 20,),
-                         Text('YOUR NAME',style: TextStyle(fontSize: 20),),
-                       ],
-                     ),
-                     SizedBox(height: 5,),
-                     Row(
-                       children: [
-                         SizedBox(width: 20,),
-                         Text('You can only change your name once ',style: TextStyle(fontSize: 14.5),),
-                       ],
-                     ),
-                     Padding(
-                       padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
-                       child: TextField(
-                         controller: Txtemail,
-                         onTapOutside: (event){
-                           FocusManager.instance.primaryFocus!.unfocus();
-                         },
+            IndexedStack(
+              index: widget.index,
+              children: [
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 30,),
+                      Row(
+                        children: [
+                          SizedBox(width: 20,),
+                          Text('YOUR NAME', style: TextStyle(fontSize: 20),),
+                        ],
+                      ),
+                      SizedBox(height: 5,),
+                      Row(
+                        children: [
+                          SizedBox(width: 20,),
+                          Text('You can only change your name once ',
+                            style: TextStyle(fontSize: 14.5),),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                        child: TextField(
+                          controller: Txtemail,
+                          onTapOutside: (event) {
+                            FocusManager.instance.primaryFocus!.unfocus();
+                          },
 
-                         keyboardType: TextInputType.name,
-                         decoration: InputDecoration(
-                           hoverColor: Color(0xffebebeb) ,
-                           border: OutlineInputBorder(
-                             borderRadius: BorderRadius.all(Radius.circular(10)),
-                             borderSide: BorderSide(width: 1,color: Colors.black,),
-                           )
-                         ),
-                       ),
-                     )
-                   ],
-                 ),
-               ),
-               Container(
-                 height: 800,
-                 width: 361,
-                 decoration: BoxDecoration(color: Colors.white),
-               ),
-               Padding(
-                 padding: const EdgeInsets.all(20.0),
-                 child: Container(
-                   height: 500,
-                   width: 361,
-                   decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(30)),
-                   child: Column(
-                     mainAxisAlignment: MainAxisAlignment.center,
-                     children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            CircleAvatar(
-                              backgroundImage: (imagepath)?FileImage(imagepath):null,
+                          keyboardType: TextInputType.name,
+                          decoration: InputDecoration(
+                              hoverColor: Color(0xffebebeb),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                    Radius.circular(10)),
+                                borderSide: BorderSide(
+                                  width: 1, color: Colors.black,),
+                              )
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Container(
+                    height: 500,
+                    width: 361,
+                    decoration: BoxDecoration(color: Colors.white,
+                        borderRadius: BorderRadius.circular(30)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CircleAvatar(
+                          radius: 60,
+                          backgroundImage: (Imagepath != null) ? FileImage(
+                              Imagepath!) : null,
+                          child: InkWell(
+                            onTap: () => SetImage(),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Icon(Icons.camera_alt),
+                                  ],
+                                ),
+                              ],
                             ),
-                            Icon(Icons.image,color: Color(0XFF6a5ca8),size: 50,),
-                            SizedBox(width: 20,),
-                            Text('Tap to add your \n profile image',style: TextStyle(color: Color(0XFF6a5ca8),fontSize: 30),),
-                          ],
-                        )
-                     ],
-                   ),
-                 ),
-               ),
-               Container(
-                 height: 800,
-                 width: 361,
-                 decoration: BoxDecoration(color: Colors.white),
-               ),
-               Container(
-                 height: 800,
-                 width: 361,
-                 decoration: BoxDecoration(color: Colors.white),
-               ),
-               Container(
-                 height: 800,
-                 width: 361,
-                 decoration: BoxDecoration(color: Colors.white),
-               ),
-               Container(
-                 height: 800,
-                 width: 361,
-                 decoration: BoxDecoration(color: Colors.white),
-               ),
-               Container(
-                 height: 800,
-                 width: 361,
-                 decoration: BoxDecoration(color: Colors.white),
-               ),
-               Container(
-                 height: 800,
-                 width: 361,
-                 decoration: BoxDecoration(color: Colors.white),
-               ),
-               Container(
-                 height: 800,
-                 width: 361,
-                 decoration: BoxDecoration(color: Colors.white),
-               ),
-               Container(
-                 height: 800,
-                 width: 361,
-                 decoration: BoxDecoration(color: Colors.white),
-               ),
-               Container(
-                 height: 800,
-                 width: 361,
-                 decoration: BoxDecoration(color: Colors.white),
-               ),
-               Container(
-                 height: 800,
-                 width: 361,
-                 decoration: BoxDecoration(color: Colors.white),
-               ),
-               Container(
-                 height: 800,
-                 width: 361,
-                 decoration: BoxDecoration(color: Colors.white),
-               ),
-               Container(
-                 height: 800,
-                 width: 361,
-                 decoration: BoxDecoration(color: Colors.white),
-               ),
-               Container(
-                 height: 800,
-                 width: 361,
-                 decoration: BoxDecoration(color: Colors.white),
-               ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 40,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            SetgImage();
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
 
-             ],
+                              Icon(Icons.image, color: Color(0XFF6a5ca8),
+                                size: 50,),
+                              SizedBox(width: 20,),
+                              Text('Tap to add your \n profile image',
+                                style: TextStyle(
+                                    color: Color(0XFF6a5ca8), fontSize: 30),),
+                            ],
+                          ),
+                        ),
 
-           )
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+
+              ],
+
+            )
 
 
           ],
         ),
       ),
     );
-
   }
-  ImagePicker Imagepicker = ImagePicker();
-  Future<void> setimage()
-  async {
-    XFile? Image = await Imagepicker.pickImage(source: ImageSource.gallery);
+
+  ImagePicker imagePicker = ImagePicker();
+  File? Imagepath;
+
+  Future<void> SetImage() async {
+    XFile? image = await imagePicker.pickImage(source: ImageSource.camera);
     setState(() {
-
-      imagepath = File(image!.path)
+      Imagepath = File(image!.path);
     });
-
   }
-  ImagePicker imagePicker = Imagepicker();
-  File? imagepath;
+
+  Future<void> SetgImage() async {
+    XFile? image = await imagePicker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      Imagepath = File(image!.path);
+    });
+  }
 }
 
 
