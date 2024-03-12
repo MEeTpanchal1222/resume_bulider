@@ -23,6 +23,7 @@ class InputAllScreen extends StatefulWidget {
   State<InputAllScreen> createState() => _InputAllScreenState();
 }
  TextEditingController Txtemail = TextEditingController();
+  TextEditingController Txtnation = TextEditingController();
 
 
 class _InputAllScreenState extends State<InputAllScreen> {
@@ -139,56 +140,112 @@ class _InputAllScreenState extends State<InputAllScreen> {
             IndexedStack(
               index: widget.index,
               children: [
-                Container(
-                  height: 800,
-                  width: 361,
-                  decoration: BoxDecoration(color: Colors.white),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 30,),
-                      Row(
-                        children: [
-                          SizedBox(width: 20,),
-                          Text('YOUR NAME', style: TextStyle(fontSize: 20),),
-                        ],
-                      ),
-                      SizedBox(height: 5,),
-                      Row(
-                        children: [
-                          SizedBox(width: 20,),
-                          Text('You can only change your name once ',
-                            style: TextStyle(fontSize: 14.5),),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
-                        child: TextField(
-                          controller: Txtemail,
-                          onTapOutside: (event) {
-                            FocusManager.instance.primaryFocus!.unfocus();
-                          },
 
-                          keyboardType: TextInputType.name,
-                          decoration: InputDecoration(
-                              hoverColor: Color(0xffebebeb),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                    Radius.circular(10)),
-                                borderSide: BorderSide(
-                                  width: 1, color: Colors.black,),
-                              )
+                Padding(                   //screen 1
+                  padding: const EdgeInsets.all(20.0),
+                  child: Container(
+                    height: 800,
+                    width: 361,
+                    decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10)),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 30,),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Text('YOUR NAME', style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                        SizedBox(height: 5,),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Text('You can only change your name once ',
+                              style: TextStyle(fontSize: 14.5),),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: Container(
+                            height:66,
+                            width: 350,
+                            decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                            child: TextField(
+                                controller: Txtemail,
+                                onTapOutside: (event) {
+                                  FocusManager.instance.primaryFocus!.unfocus();
+                                },
+
+                                keyboardType: TextInputType.name,
+                                decoration: InputDecoration(
+
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(10)),
+                                      borderSide: BorderSide(
+                                        width: 0, color:Color(0xffebebeb),),
+                                    )
+                                ),
+                              ),
                           ),
                         ),
-                      )
-                    ],
+                        SizedBox(height: 5,),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Text('NATIONALITY ',
+                              style: TextStyle(fontSize: 15.5,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: TextField(
+                            controller: Txtnation,
+                            onTapOutside: (event) {
+                              FocusManager.instance.primaryFocus!.unfocus();
+                            },
+                            keyboardType: TextInputType.name,
+                            style: TextStyle(
+                              color: Colors.grey.shade800, // Change this to the color you want
+                            ),
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(10)),
+                                  borderSide: BorderSide(
+                                    width: 1, color: Colors.black,),
+                                )
+                            ),
+                          ),
+
+                        )
+                      ],
+                    ),
                   ),
                 ),
-                Container(
+
+
+
+
+
+
+
+
+
+
+                Container(             ///screen 2
                   height: 800,
                   width: 361,
                   decoration: BoxDecoration(color: Colors.white),
                 ),
-                Padding(
+
+
+
+
+
+
+
+                Padding(                     ///  screen 3
                   padding: const EdgeInsets.all(20.0),
                   child: Container(
                     height: 500,
@@ -242,6 +299,13 @@ class _InputAllScreenState extends State<InputAllScreen> {
                     ),
                   ),
                 ),
+
+
+
+
+
+
+
                 Container(
                   height: 800,
                   width: 361,
@@ -340,214 +404,3 @@ class _InputAllScreenState extends State<InputAllScreen> {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import 'package:flutter/material.dart';
-// import 'package:flutter/widgets.dart';
-// class inputallscreen extends StatelessWidget {
-//   const inputallscreen({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     final index = ModalRoute.of(context)?.settings.arguments;
-//     return InputAllScreen(index: index);
-//   }
-// }
-// class InputAllScreen extends StatefulWidget {
-//    int index;
-//   const InputAllScreen({Key? key, required this.index}) : super(key: key);
-//
-//   @override
-//   State<InputAllScreen> createState() => _InputAllScreenState();
-// }
-//
-// class _InputAllScreenState extends State<InputAllScreen> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         backgroundColor: Color(0XFF6a5ca8),
-//         actions: [
-//           Text((index==1)?'Basic Info', style: TextStyle(
-//             color: Colors.white, letterSpacing: 1.5, fontSize: 30,),),
-//           SizedBox(width: 90,),
-//
-//           Icon(Icons.edit, color: Colors.white, size: 35,),
-//           SizedBox(width: 8,),
-//         ],
-//         elevation: 4,
-//       ),
-//
-//       body: SingleChildScrollView(
-//         scrollDirection: Axis.vertical,
-//         child: Column(
-//           children: [
-//             Padding(
-//               padding: const EdgeInsets.all(13.0),
-//               child: Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//                 children: [
-//                   Container(
-//                     height: 50,
-//                     width: 100,
-//                     decoration:BoxDecoration(color: Colors.white,border: Border.all(color:  Color(0xff7267af),width: 2),borderRadius: BorderRadius.circular(15),
-//                       //boxShadow: [
-//                       //BoxShadow(color: Colors.grey,offset:Offset(0, 2),blurRadius: 8 ),]
-//                     ),
-//                     child: Row(
-//                       mainAxisAlignment: MainAxisAlignment.center,
-//                       children: [
-//                         Icon(Icons.book,color: Color(0xff7267af),),
-//                         SizedBox(width: 10,),
-//                         Text('GUIDE',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 15),)
-//                       ],
-//                     ),
-//                   ),
-//                   Container(
-//                     height: 50,
-//                     width: 120,
-//                     decoration:BoxDecoration(color: Colors.white,border: Border.all(color:  Color(0xff7267af),width: 2),borderRadius: BorderRadius.circular(15),
-//                       //boxShadow: [
-//                       //BoxShadow(color: Colors.grey,offset:Offset(0, 2),blurRadius: 8 ),]
-//                     ),
-//                     child: Row(
-//                       mainAxisAlignment: MainAxisAlignment.center,
-//                       children: [
-//                         Icon(Icons.star_border,color: Color(0xff7267af),),
-//                         SizedBox(width: 10,),
-//                         Text('DEFAULT',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 15),)
-//                       ],
-//                     ),
-//                   ),
-//                   Container(
-//                     height: 50,
-//                     width: 100,
-//                     decoration:BoxDecoration(color: Colors.white,border: Border.all(color:  Color(0xff7267af),width: 2),borderRadius: BorderRadius.circular(15),
-//                       //boxShadow: [
-//                       //BoxShadow(color: Colors.grey,offset:Offset(0, 2),blurRadius: 8 ),]
-//                     ),
-//                     child: Row(
-//                       mainAxisAlignment: MainAxisAlignment.center,
-//                       children: [
-//                         Icon(Icons.headphones,color: Color(0xff7267af),),
-//                         SizedBox(width: 10,),
-//                         Text('CHAT',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 15),)
-//                       ],
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//
-//
-//
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-//}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import 'package:flutter/material.dart';
-//
-// class inputallscreen extends StatelessWidget {
-//   const inputallscreen({Key key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     // Extract the index argument passed from the previous page
-//     final index = ModalRoute.of(context).settings.arguments;
-//
-//     return InputAllScreen(index: index);
-//   }
-// }
-//
-// class InputAllScreen extends StatefulWidget {
-//   final int index; // Define a variable to hold the index
-//
-//   const InputAllScreen({Key key, this.index}) : super(key: key);
-//
-//   @override
-//   State<InputAllScreen> createState() => _InputAllScreenState();
-// }
-//
-// class _InputAllScreenState extends State<InputAllScreen> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         backgroundColor: Color(0XFF6a5ca8),
-//         actions: [
-//           // Use the index to conditionally display text
-//           Text(
-//             widget.index == null ? 'Basic Info' : 'Index: ${widget.index}',
-//             style: TextStyle(
-//               color: Colors.white,
-//               letterSpacing: 1.5,
-//               fontSize: 30,
-//             ),
-//           ),
-//           SizedBox(width: 90),
-//           Icon(Icons.edit, color: Colors.white, size: 35),
-//           SizedBox(width: 8),
-//         ],
-//         elevation: 4,
-//       ),
-//       body: SingleChildScrollView(
-//         scrollDirection: Axis.vertical,
-//         child: Column(
-//           children: [
-//             Padding(
-//               padding: const EdgeInsets.all(13.0),
-//               child: Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//                 children: [
-//                   // Your containers and other widgets go here
-//                 ],
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
