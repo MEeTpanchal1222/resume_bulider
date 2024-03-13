@@ -436,7 +436,9 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(height: 20,),
             SizedBox(
               child: Image.asset('assest/artical.png'),
-            )
+            ),
+            SizedBox(height: 120,),
+
           ],
         ),
       ),

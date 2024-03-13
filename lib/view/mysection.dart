@@ -137,7 +137,8 @@ class _EDITScreenState extends State<EDITScreen> {
                       },
                         child: top(context, section[index]['img'], section[index]['Dec'])),
               ),
-            )
+            ),
+
 
 
           ],

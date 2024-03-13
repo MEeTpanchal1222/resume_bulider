@@ -24,9 +24,8 @@ class InputAllScreen extends StatefulWidget {
 }
  TextEditingController Txtemail = TextEditingController();
   TextEditingController Txtnation = TextEditingController();
-
-
 class _InputAllScreenState extends State<InputAllScreen> {
+  bool _switchValuemale = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -197,27 +196,48 @@ class _InputAllScreenState extends State<InputAllScreen> {
                               style: TextStyle(fontSize: 15.5,fontWeight: FontWeight.bold),),
                           ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
-                          child: TextField(
-                            controller: Txtnation,
-                            onTapOutside: (event) {
-                              FocusManager.instance.primaryFocus!.unfocus();
-                            },
-                            keyboardType: TextInputType.name,
-                            style: TextStyle(
-                              color: Colors.grey.shade800, // Change this to the color you want
-                            ),
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                      Radius.circular(10)),
-                                  borderSide: BorderSide(
-                                    width: 1, color: Colors.black,),
-                                )
-                            ),
-                          ),
 
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                        child: Container(
+                          height:66,
+                          width: 350,
+                          decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                          child: TextField(
+                                controller: Txtnation,
+                                onTapOutside: (event) {
+                                  FocusManager.instance.primaryFocus!.unfocus();
+                                },
+                                keyboardType: TextInputType.name,
+                                style: TextStyle(
+                                  color: Colors.grey.shade800, // Change this to the color you want
+                                ),
+                                decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(10)),
+                                      borderSide: BorderSide(
+                                        width: 1, color: Colors.black,),
+                                    )
+                                ),
+                              ),
+                        ),
+                      ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('SHOW GENDER ?',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey.shade800),),
+                            SizedBox(width: 40,),
+                            Switch(
+                              value: _switchValuemale,
+                              focusColor:  Color(0XFF6a5ca8),
+                              onChanged: (newValue) {
+                                setState(() {
+                                  _switchValuemale = newValue;
+                                });
+                              },
+                            ),
+                          ],
                         )
                       ],
                     ),
