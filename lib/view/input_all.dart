@@ -1,8 +1,11 @@
 
 import 'dart:io';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../uitels/coloer.dart';
 
 class inputallscreen extends StatelessWidget {
   const inputallscreen({Key? key});
@@ -24,8 +27,11 @@ class InputAllScreen extends StatefulWidget {
 }
  TextEditingController Txtemail = TextEditingController();
   TextEditingController Txtnation = TextEditingController();
-class _InputAllScreenState extends State<InputAllScreen> {
   bool _switchValuemale = false;
+  bool _switchValueage = false;
+
+
+class _InputAllScreenState extends State<InputAllScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -177,7 +183,8 @@ class _InputAllScreenState extends State<InputAllScreen> {
 
                                 keyboardType: TextInputType.name,
                                 decoration: InputDecoration(
-
+                                  prefixIcon: Icon(Icons.account_box,color: colormeet,size: 35,),
+                                    suffixIcon:  Icon(Icons.edit,color: colormeet,size: 35,),
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(10)),
@@ -196,14 +203,13 @@ class _InputAllScreenState extends State<InputAllScreen> {
                               style: TextStyle(fontSize: 15.5,fontWeight: FontWeight.bold),),
                           ],
                         ),
-
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
-                        child: Container(
-                          height:66,
-                          width: 350,
-                          decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
-                          child: TextField(
+                     Padding(
+                       padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                       child: Container(
+                         height:66,
+                         width: 350,
+                         decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                         child: TextField(
                                 controller: Txtnation,
                                 onTapOutside: (event) {
                                   FocusManager.instance.primaryFocus!.unfocus();
@@ -213,6 +219,8 @@ class _InputAllScreenState extends State<InputAllScreen> {
                                   color: Colors.grey.shade800, // Change this to the color you want
                                 ),
                                 decoration: InputDecoration(
+                                    prefixIcon: Icon(Icons.airplanemode_on_rounded,color: colormeet,size: 35,),
+                                    suffixIcon:  Icon(Icons.more_horiz,color: colormeet,size: 35,),
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(10)),
@@ -221,24 +229,94 @@ class _InputAllScreenState extends State<InputAllScreen> {
                                     )
                                 ),
                               ),
-                        ),
-                      ),
+                       ),
+                     ),
+                       SizedBox(height: 30,),
+                       Row(
+                         mainAxisAlignment: MainAxisAlignment.center,
+                         children: [
+                            Text('SHOW GENDER ?',style: TextStyle(
+                                    fontSize: 17,color: Colors.grey.shade800
+                            ),),
+                           SizedBox(width: 100,),
+                           Switch(
+                             value: _switchValuemale,
+                             onChanged: (newValue) {
+                               setState(() {
+                                 _switchValuemale = newValue;
+                               });
+                             },
+                           ),
+                         ],
+                       ),
+                        SizedBox(height: 30,),
+                        (_switchValuemale)?Column(
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(width: 20,),
+                                Text('GENDER',style: TextStyle(fontSize: 19),),
+                              ],
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
+                              child: Container(
+                                height: 130,
+                                width: 400,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: colormeet),
+                                  borderRadius: BorderRadius.circular(15)
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      height: 130,
+                                      width: 60,
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Icon(Icons.man,color: colormeet,size: 60,),
+                                          SizedBox(height: 4,),
+                                          Text('MALE'),
+                                        ],
+                                      ),
+                                    ),
+                                    VerticalDivider(color: colormeet,),
+                                    Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Icon(Icons.woman_2_rounded,color: colormeet,size: 60,),
+                                        SizedBox(height: 4,),
+                                        Text('FEMALE'),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ) 
+                            :SizedBox(height: 0,width: 0,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('SHOW GENDER ?',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey.shade800),),
-                            SizedBox(width: 40,),
+                            Text('SHOW AGE ?',style: TextStyle(
+                                fontSize: 17,color: Colors.grey.shade800
+                            ),),
+                            SizedBox(width: 100,),
                             Switch(
-                              value: _switchValuemale,
-                              focusColor:  Color(0XFF6a5ca8),
+                              value: _switchValueage,
                               onChanged: (newValue) {
                                 setState(() {
-                                  _switchValuemale = newValue;
+                                  _switchValueage = newValue;
                                 });
                               },
                             ),
                           ],
-                        )
+                        ),
+
+                               
                       ],
                     ),
                   ),
@@ -314,6 +392,8 @@ class _InputAllScreenState extends State<InputAllScreen> {
                             ],
                           ),
                         ),
+
+
 
                       ],
                     ),
