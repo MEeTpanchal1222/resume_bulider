@@ -1,8 +1,8 @@
 
 import 'dart:io';
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../uitels/coloer.dart';
@@ -27,11 +27,26 @@ class InputAllScreen extends StatefulWidget {
 }
  TextEditingController Txtemail = TextEditingController();
   TextEditingController Txtnation = TextEditingController();
-  bool _switchValuemale = false;
-  bool _switchValueage = false;
-
+TextEditingController Txtface = TextEditingController();
+TextEditingController Txtlink1 = TextEditingController();
+TextEditingController Txtlink2 = TextEditingController();
+TextEditingController Txtlink3 = TextEditingController();
+TextEditingController Txtdob = TextEditingController();
+  bool switchValuemale = false;
+  bool switchValueage = false;
+bool switchValuemarrige = false;
+  String textFieldnation = '';
+String textFieldface = '';
+String textFieldlink1 = '';
+String textFieldlink2 = '';
+String textFieldlink3 = '';
+  String textFieldname = '';
+  String textFielddob = '';
+  bool male = false; //on tap male = true
+  bool marride = false;
 
 class _InputAllScreenState extends State<InputAllScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,7 +138,7 @@ class _InputAllScreenState extends State<InputAllScreen> {
                     height: 50,
                     width: 100,
                     decoration: BoxDecoration(color: Colors.transparent,
-                      border: Border.all(color: Color(0xff7267af), width: 2),
+                      border: Border.all(color:Color(0xff7267af), width: 2),
                       borderRadius: BorderRadius.circular(15),
                       //boxShadow: [
                       //BoxShadow(color: Colors.grey,offset:Offset(0, 2),blurRadius: 8 ),]
@@ -149,7 +164,7 @@ class _InputAllScreenState extends State<InputAllScreen> {
                 Padding(                   //screen 1
                   padding: const EdgeInsets.all(20.0),
                   child: Container(
-                    height: 800,
+                    height: 1600,
                     width: 361,
                     decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10)),
                     child: Column(
@@ -176,6 +191,11 @@ class _InputAllScreenState extends State<InputAllScreen> {
                             width: 350,
                             decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
                             child: TextField(
+                              onChanged: (value) {
+                                setState(() {
+                                  textFieldname = value; // Store the entered text in the variable
+                                });
+                              },
                                 controller: Txtemail,
                                 onTapOutside: (event) {
                                   FocusManager.instance.primaryFocus!.unfocus();
@@ -210,6 +230,11 @@ class _InputAllScreenState extends State<InputAllScreen> {
                          width: 350,
                          decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
                          child: TextField(
+                           onChanged: (value) {
+                             setState(() {
+                               textFieldnation = value; // Store the entered text in the variable
+                             });
+                           },
                                 controller: Txtnation,
                                 onTapOutside: (event) {
                                   FocusManager.instance.primaryFocus!.unfocus();
@@ -240,21 +265,21 @@ class _InputAllScreenState extends State<InputAllScreen> {
                             ),),
                            SizedBox(width: 100,),
                            Switch(
-                             value: _switchValuemale,
+                             value: switchValuemale,
                              onChanged: (newValue) {
                                setState(() {
-                                 _switchValuemale = newValue;
+                                 switchValuemale = newValue;
                                });
                              },
                            ),
                          ],
                        ),
-                        SizedBox(height: 30,),
-                        (_switchValuemale)?Column(
+                        SizedBox(height: 20,),
+                        (switchValuemale)?Column(
                           children: [
                             Row(
                               children: [
-                                SizedBox(width: 20,),
+                                SizedBox(width: 35,),
                                 Text('GENDER',style: TextStyle(fontSize: 19),),
                               ],
                             ),
@@ -264,32 +289,57 @@ class _InputAllScreenState extends State<InputAllScreen> {
                                 height: 130,
                                 width: 400,
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: colormeet),
+                                  border: Border.all(color: colormeet,width: 1),
                                   borderRadius: BorderRadius.circular(15)
                                 ),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Container(
-                                      height: 130,
-                                      width: 60,
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Icon(Icons.man,color: colormeet,size: 60,),
-                                          SizedBox(height: 4,),
-                                          Text('MALE'),
-                                        ],
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          male = true;
+                                        });
+                                      },
+                                      child: Container(
+                                        height: 130,
+                                        width: 148.9,
+                                        decoration: BoxDecoration(
+                                          color: (male)?colormeet:Colors.white,
+                                            borderRadius: BorderRadius.only(topLeft: Radius.circular(15),bottomLeft: Radius.circular(15))
+                                        ),
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Icon(Icons.man,color:  (male)?Colors.white:colormeet,size: 60,),
+                                            SizedBox(height: 4,),
+                                            Text('MALE'),
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                    VerticalDivider(color: colormeet,),
-                                    Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Icon(Icons.woman_2_rounded,color: colormeet,size: 60,),
-                                        SizedBox(height: 4,),
-                                        Text('FEMALE'),
-                                      ],
+                                    VerticalDivider(color: colormeet,width: 1,),
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          male = false;
+                                        });
+                                      },
+                                      child: Container(
+                                        height: 130,
+                                        width: 148.9,
+                                        decoration: BoxDecoration(
+                                            color: (male)?Colors.white:colormeet,
+                                            borderRadius: BorderRadius.only(topRight: Radius.circular(15),bottomRight: Radius.circular(15))),
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Icon(Icons.woman_2_rounded,color: (male)?colormeet:Colors.white,size: 60,),
+                                            SizedBox(height: 4,),
+                                            Text('FEMALE'),
+                                          ],
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -304,23 +354,329 @@ class _InputAllScreenState extends State<InputAllScreen> {
                             Text('SHOW AGE ?',style: TextStyle(
                                 fontSize: 17,color: Colors.grey.shade800
                             ),),
-                            SizedBox(width: 100,),
+                            SizedBox(width: 135,),
                             Switch(
-                              value: _switchValueage,
+                              value: switchValueage,
                               onChanged: (newValue) {
                                 setState(() {
-                                  _switchValueage = newValue;
+                                  switchValueage = newValue;
                                 });
                               },
                             ),
                           ],
                         ),
+                        SizedBox(height: 20,),
+                        (switchValueage)?Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                       Container(
+                                height:66,
+                                width: 250,
+                                decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                                child: TextField(
+                                  onChanged: (value) {
+                                    setState(() {
+                                      textFielddob = value; // Store the entered text in the variable
+                                    });
+                                  },
+                                  controller: Txtdob,
+                                  onTapOutside: (event) {
+                                    FocusManager.instance.primaryFocus!.unfocus();
+                                  },
 
-                               
+                                  keyboardType: TextInputType.datetime,
+                                  decoration: InputDecoration(
+                                      prefixIcon: Icon(Icons.view_day_rounded,color: colormeet,size: 35,),
+                                      suffixIcon:  Icon(Icons.edit,color: colormeet,size: 35,),
+                                      hintText: 'mm/dd/yyyy',
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10)),
+                                        borderSide: BorderSide(
+                                          width: 0, color:Color(0xffebebeb),),
+                                      )
+                                  ),
+                                ),
+                              ),
+                        ],
+                        ):SizedBox(height: 0,width: 0,),
+                        SizedBox(height: 25,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('Matrial Status ?',style: TextStyle(
+                                fontSize: 17,color: Colors.grey.shade800
+                            ),),
+                            SizedBox(width: 112,),
+                            Switch(
+                              value: switchValuemarrige,
+                              onChanged: (newValue) {
+                                setState(() {
+                                  switchValuemarrige = newValue;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 20,),
+                        (switchValuemarrige)?Column(
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(width: 35,),
+                                Text('MATRIAL STATUS ',style: TextStyle(fontSize: 19),),
+                              ],
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
+                              child: Container(
+                                height: 130,
+                                width: 400,
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: colormeet,width: 1),
+                                    borderRadius: BorderRadius.circular(15)
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          marride = true;
+                                        });
+                                      },
+                                      child: Container(
+                                        height: 130,
+                                        width: 148.9,
+                                        decoration: BoxDecoration(
+                                            color: (marride)?colormeet:Colors.white,
+                                            borderRadius: BorderRadius.only(topLeft: Radius.circular(15),bottomLeft: Radius.circular(15))
+                                        ),
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Icon(Icons.family_restroom,color:  (marride)?Colors.white:colormeet,size: 60,),
+                                            SizedBox(height: 4,),
+                                            Text('MARRIED'),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    VerticalDivider(color: colormeet,width: 1,),
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          marride = false;
+                                        });
+                                      },
+                                      child: Container(
+                                        height: 130,
+                                        width: 148.9,
+                                        decoration: BoxDecoration(
+                                            color: (marride)?Colors.white:colormeet,
+                                            borderRadius: BorderRadius.only(topRight: Radius.circular(15),bottomRight: Radius.circular(15))),
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Icon(Icons.man,color: (marride)?colormeet:Colors.white,size: 60,),
+                                            SizedBox(height: 4,),
+                                            Text('UNMARRIED'),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                            :SizedBox(height: 0,width: 0,),
+                        SizedBox(height: 30,),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Text('FACEBOOK LINK ',
+                              style: TextStyle(fontSize: 15.5,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: Container(
+                            height:66,
+                            width: 350,
+                            decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                            child: TextField(
+                              onChanged: (value) {
+                                setState(() {
+                                  textFieldface = value; // Store the entered text in the variable
+                                });
+                              },
+                              controller: Txtface,
+                              onTapOutside: (event) {
+                                FocusManager.instance.primaryFocus!.unfocus();
+                              },
+                              keyboardType: TextInputType.name,
+                              style: TextStyle(
+                                color: Colors.grey.shade800, // Change this to the color you want
+                              ),
+                              decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.facebook,color: colormeet,size: 35,),
+                                  suffixIcon:  Icon(Icons.more_horiz,color: colormeet,size: 35,),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                      width: 1, color: Colors.black,),
+                                  )
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 5,),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Text('TWITTER LINK ',
+                              style: TextStyle(fontSize: 15.5,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: Container(
+                            height:66,
+                            width: 350,
+                            decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                            child: TextField(
+                              onChanged: (value) {
+                                setState(() {
+                                  textFieldlink1 = value; // Store the entered text in the variable
+                                });
+                              },
+                              controller: Txtlink1,
+                              onTapOutside: (event) {
+                                FocusManager.instance.primaryFocus!.unfocus();
+                              },
+                              keyboardType: TextInputType.name,
+                              style: TextStyle(
+                                color: Colors.grey.shade800, // Change this to the color you want
+                              ),
+                              decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.link,color: colormeet,size: 35,),
+                                  suffixIcon:  Icon(Icons.more_horiz,color: colormeet,size: 35,),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                      width: 1, color: Colors.black,),
+                                  )
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 5,),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Text('LINKDIN LINK ',
+                              style: TextStyle(fontSize: 15.5,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: Container(
+                            height:66,
+                            width: 350,
+                            decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                            child: TextField(
+                              onChanged: (value) {
+                                setState(() {
+                                  textFieldlink2 = value; // Store the entered text in the variable
+                                });
+                              },
+                              controller: Txtlink2,
+                              onTapOutside: (event) {
+                                FocusManager.instance.primaryFocus!.unfocus();
+                              },
+                              keyboardType: TextInputType.name,
+                              style: TextStyle(
+                                color: Colors.grey.shade800, // Change this to the color you want
+                              ),
+                              decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.link,color: colormeet,size: 35,),
+                                  suffixIcon:  Icon(Icons.more_horiz,color: colormeet,size: 35,),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                      width: 1, color: Colors.black,),
+                                  )
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 5,),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Text('OTHERS LINKS ',
+                              style: TextStyle(fontSize: 15.5,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: Container(
+                            height:66,
+                            width: 350,
+                            decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                            child: TextField(
+                              onChanged: (value) {
+                                setState(() {
+                                  textFieldlink3 = value; // Store the entered text in the variable
+                                });
+                              },
+                              controller: Txtlink3,
+                              onTapOutside: (event) {
+                                FocusManager.instance.primaryFocus!.unfocus();
+                              },
+                              keyboardType: TextInputType.name,
+                              style: TextStyle(
+                                color: Colors.grey.shade800, // Change this to the color you want
+                              ),
+                              decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.link,color: colormeet,size: 35,),
+                                  suffixIcon:  Icon(Icons.more_horiz,color: colormeet,size: 35,),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                      width: 1, color: Colors.black,),
+                                  )
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 30,),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              Navigator.pushNamed(context, '/bottem');
+                            });
+                          },
+                          child: Container(
+                            height: 80,
+                            width: 330,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: colormeet),
+                            child: Center(
+                              child: Text("SAVE",style: TextStyle(color: Colors.white,fontSize: 40),),
+                            ),
+                          ),
+                        )
+
                       ],
                     ),
                   ),
-                ),
+                ),         // screen 1
 
 
 
@@ -331,10 +687,197 @@ class _InputAllScreenState extends State<InputAllScreen> {
 
 
 
-                Container(             ///screen 2
-                  height: 800,
-                  width: 361,
-                  decoration: BoxDecoration(color: Colors.white),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Container(
+                    height: 800,
+                    width: 361,
+                    decoration: BoxDecoration(color: Colors.white),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 30,),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Text('EMAIL ADDRESS ',
+                              style: TextStyle(fontSize: 15.5,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: Container(
+                            height:66,
+                            width: 350,
+                            decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                            child: TextField(
+                              onChanged: (value) {
+                                setState(() {
+                                  textFieldface = value; // Store the entered text in the variable
+                                });
+                              },
+                              controller: Txtface,
+                              onTapOutside: (event) {
+                                FocusManager.instance.primaryFocus!.unfocus();
+                              },
+                              keyboardType: TextInputType.name,
+                              style: TextStyle(
+                                color: Colors.grey.shade800, // Change this to the color you want
+                              ),
+                              decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.facebook,color: colormeet,size: 35,),
+                                  suffixIcon:  Icon(Icons.more_horiz,color: colormeet,size: 35,),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                      width: 1, color: Colors.black,),
+                                  )
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 5,),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Text('TWITTER LINK ',
+                              style: TextStyle(fontSize: 15.5,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: Container(
+                            height:66,
+                            width: 350,
+                            decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                            child: TextField(
+                              onChanged: (value) {
+                                setState(() {
+                                  textFieldlink1 = value; // Store the entered text in the variable
+                                });
+                              },
+                              controller: Txtlink1,
+                              onTapOutside: (event) {
+                                FocusManager.instance.primaryFocus!.unfocus();
+                              },
+                              keyboardType: TextInputType.name,
+                              style: TextStyle(
+                                color: Colors.grey.shade800, // Change this to the color you want
+                              ),
+                              decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.link,color: colormeet,size: 35,),
+                                  suffixIcon:  Icon(Icons.more_horiz,color: colormeet,size: 35,),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                      width: 1, color: Colors.black,),
+                                  )
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 5,),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Text('LINKDIN LINK ',
+                              style: TextStyle(fontSize: 15.5,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: Container(
+                            height:66,
+                            width: 350,
+                            decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                            child: TextField(
+                              onChanged: (value) {
+                                setState(() {
+                                  textFieldlink2 = value; // Store the entered text in the variable
+                                });
+                              },
+                              controller: Txtlink2,
+                              onTapOutside: (event) {
+                                FocusManager.instance.primaryFocus!.unfocus();
+                              },
+                              keyboardType: TextInputType.name,
+                              style: TextStyle(
+                                color: Colors.grey.shade800, // Change this to the color you want
+                              ),
+                              decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.link,color: colormeet,size: 35,),
+                                  suffixIcon:  Icon(Icons.more_horiz,color: colormeet,size: 35,),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                      width: 1, color: Colors.black,),
+                                  )
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 5,),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Text('OTHERS LINKS ',
+                              style: TextStyle(fontSize: 15.5,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: Container(
+                            height:66,
+                            width: 350,
+                            decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                            child: TextField(
+                              onChanged: (value) {
+                                setState(() {
+                                  textFieldlink3 = value; // Store the entered text in the variable
+                                });
+                              },
+                              controller: Txtlink3,
+                              onTapOutside: (event) {
+                                FocusManager.instance.primaryFocus!.unfocus();
+                              },
+                              keyboardType: TextInputType.name,
+                              style: TextStyle(
+                                color: Colors.grey.shade800, // Change this to the color you want
+                              ),
+                              decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.link,color: colormeet,size: 35,),
+                                  suffixIcon:  Icon(Icons.more_horiz,color: colormeet,size: 35,),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                      width: 1, color: Colors.black,),
+                                  )
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 30,),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              Navigator.pushNamed(context, '/bottem');
+                            });
+                          },
+                          child: Container(
+                            height: 80,
+                            width: 330,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: colormeet),
+                            child: Center(
+                              child: Text("SAVE",style: TextStyle(color: Colors.white,fontSize: 40),),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                 ),
 
 

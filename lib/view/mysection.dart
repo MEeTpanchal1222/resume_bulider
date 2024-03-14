@@ -13,7 +13,6 @@ class editscreen extends StatelessWidget {
 }
 class EDITScreen extends StatefulWidget {
   const EDITScreen({super.key});
-
   @override
   State<EDITScreen> createState() => _EDITScreenState();
 }
@@ -139,7 +138,7 @@ class _EDITScreenState extends State<EDITScreen> {
               ),
             ),
 
-
+            SizedBox(height: 120,)
 
           ],
         ),
