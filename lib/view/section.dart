@@ -6,8 +6,7 @@ import 'package:curved_nav_bar/flutter_curved_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:resume_bulider/view/homescreen.dart';
 import 'package:resume_bulider/view/slashscreen.dart';
-
-import 'input_all.dart';
+import 'package:resume_bulider/view/input_all.dart';
 import 'mysection.dart';
 
 class bottemscreen extends StatelessWidget {
@@ -24,7 +23,6 @@ class BottemScreen extends StatefulWidget {
   @override
   State<BottemScreen> createState() => _SectionState();
 }
-File? Imagepath1 = ;
 class _SectionState extends State<BottemScreen> {
   @override
   Widget build(BuildContext context) {
@@ -46,14 +44,16 @@ class _SectionState extends State<BottemScreen> {
                     color: Colors.white,
                   ),
                 ),
-                inActiveIcon: Container(
-                  padding: EdgeInsets.all(18),
-                  decoration:
-                  BoxDecoration(color: Color(0XFF6a5ca8), shape: BoxShape.circle),
-                  child: Icon(
-                    Icons.remove_red_eye,
-                    size: 30,
-                    color: Colors.white,
+                inActiveIcon: InkWell(
+                  child: Container(
+                    padding: EdgeInsets.all(18),
+                    decoration:
+                    BoxDecoration(color: Color(0XFF6a5ca8), shape: BoxShape.circle),
+                    child: Icon(
+                      Icons.remove_red_eye,
+                      size: 30,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 text: "Preview"),
@@ -111,15 +111,15 @@ class _SectionState extends State<BottemScreen> {
               slashscreen(),
             ],
             actionBarView: Container(
-              height: 300,
-              width: 300,
+              height: 550,
+              width: 400,
               color: Colors.pink,
               child: Column(
                 children: [
-                      SizedBox(
-                          height: 50,width: 50,
-              child: Image.file(Imagepath1!)),
-                      Text(textFieldnation)
+                       SizedBox(
+                          height: 100,width: 200,
+                           child: (Imagepath != null )?Image.file(Imagepath!):null),
+                      Text(textFieldnation),
                 ],
               ),
             ),

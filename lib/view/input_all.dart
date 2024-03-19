@@ -23,7 +23,7 @@ class InputAllScreen extends StatefulWidget {
   const InputAllScreen({Key? key, this.index}) : super(key: key);
 
   @override
-  State<InputAllScreen> createState() => _InputAllScreenState();
+  State<InputAllScreen> createState() => InputAllScreenState();
 }
  TextEditingController Txtemail = TextEditingController();
   TextEditingController Txtnation = TextEditingController();
@@ -46,6 +46,7 @@ TextEditingController Txtdesc = TextEditingController();
   bool switchValuemale = false;
   bool switchValueage = false;
 bool switchValuemarrige = false;
+File? Imagepath;
   String textFieldnation = '';
 String textFieldface = '';
 String textFieldlink1 = '';
@@ -65,7 +66,7 @@ String textFielddesc = '';
   bool male = false; //on tap male = true
   bool marride = false;
 
-class _InputAllScreenState extends State<InputAllScreen> {
+class InputAllScreenState extends State<InputAllScreen> {
 
   @override
   Widget build(BuildContext context) {
@@ -954,6 +955,22 @@ class _InputAllScreenState extends State<InputAllScreen> {
                             ],
                           ),
                         ),
+                        SizedBox(height: 30,),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              Navigator.pushNamed(context, '/bottem');
+                            });
+                          },
+                          child: Container(
+                            height: 80,
+                            width: 330,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: colormeet),
+                            child: Center(
+                              child: Text("SAVE",style: TextStyle(color: Colors.white,fontSize: 40),),
+                            ),
+                          ),
+                        )
 
 
 
@@ -1263,7 +1280,7 @@ class _InputAllScreenState extends State<InputAllScreen> {
   }
 
   ImagePicker imagePicker = ImagePicker();
-  File? Imagepath;
+
 
   Future<void> SetImage() async {
     XFile? image = await imagePicker.pickImage(source: ImageSource.camera);
