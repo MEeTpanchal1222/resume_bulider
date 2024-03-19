@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:curved_nav_bar/curved_bar/curved_action_bar.dart';
 import 'package:curved_nav_bar/fab_bar/fab_bottom_app_bar_item.dart';
 import 'package:curved_nav_bar/flutter_curved_bottom_nav_bar.dart';
@@ -5,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:resume_bulider/view/homescreen.dart';
 import 'package:resume_bulider/view/slashscreen.dart';
 
+import 'input_all.dart';
 import 'mysection.dart';
 
 class bottemscreen extends StatelessWidget {
@@ -21,11 +24,10 @@ class BottemScreen extends StatefulWidget {
   @override
   State<BottemScreen> createState() => _SectionState();
 }
-
+File? Imagepath1 = ;
 class _SectionState extends State<BottemScreen> {
   @override
   Widget build(BuildContext context) {
-
     return SafeArea(
       child: Scaffold(
           bottomNavigationBar:CurvedNavBar(
@@ -109,8 +111,17 @@ class _SectionState extends State<BottemScreen> {
               slashscreen(),
             ],
             actionBarView: Container(
-              height: 50,
-              color: Colors.transparent,
+              height: 300,
+              width: 300,
+              color: Colors.pink,
+              child: Column(
+                children: [
+                      SizedBox(
+                          height: 50,width: 50,
+              child: Image.file(Imagepath1!)),
+                      Text(textFieldnation)
+                ],
+              ),
             ),
           ),
       ),
