@@ -1267,6 +1267,11 @@ class InputAllScreenState extends State<InputAllScreen> {
                   width: 361,
                   decoration: BoxDecoration(color: Colors.white),
                 ),
+                Container(
+                  height: 800,
+                  width: 361,
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
 
               ],
 

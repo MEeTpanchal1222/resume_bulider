@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:curved_nav_bar/curved_bar/curved_action_bar.dart';
 import 'package:curved_nav_bar/fab_bar/fab_bottom_app_bar_item.dart';
 import 'package:curved_nav_bar/flutter_curved_bottom_nav_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:resume_bulider/view/homescreen.dart';
 import 'package:resume_bulider/view/slashscreen.dart';
 import 'package:resume_bulider/view/input_all.dart';
@@ -110,21 +112,72 @@ class _SectionState extends State<BottemScreen> {
               slashscreen(),
               slashscreen(),
             ],
-            actionBarView: Container(
-              height: 550,
-              width: 400,
-              color: Colors.pink,
-              child: Column(
-                children: [
-                       SizedBox(
-                          height: 100,width: 200,
-                           child: (Imagepath != null )?Image.file(Imagepath!):null),
-                      Text(textFieldnation),
-                ],
-              ),
+            actionBarView: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 550,
+                  width: 400,
+                  color: Colors.white,
+                  child:  Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Column(
+                          children: [
+                            SizedBox(
+                                height: 120,width: 120,
+                                child: (Imagepath != null )?Image.file(Imagepath!,fit: BoxFit.fill,):null),
+                           Stack(
+                             children: [Container(
+                               height: 400,width: 120,
+                               decoration: BoxDecoration(color: Colors.grey.shade400),
+                             ),
+                               Text(textFieldnation),
+                             ]
+                           ),
+
+                          ],
+                        ),
+                        Align(
+                          alignment: Alignment.topCenter,
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 120,width: 280,
+                                decoration: BoxDecoration(color: Colors.grey.shade700),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+              ],
             ),
           ),
       ),
     );
   }
 }
+// bool switchValuemale = false;
+// bool switchValueage = false;
+// bool switchValuemarrige = false;
+// File? Imagepath;
+// String textFieldnation = '';
+// String textFieldface = '';
+// String textFieldlink1 = '';
+// String textFieldlink2 = '';
+// String textFieldlink3 = '';
+// String textFieldname = '';
+// String textFielddob = '';
+// String textFieldmail = '';
+// String textFieldphone = '';
+// String textFieldloction = '';
+// String textFieldaddress = '';
+// String textFieldprofile = '';
+// String textFieldintro = '';
+// String textFielddesi = '';
+// String textFielddesc = '';
+//
+// bool male = false; //on tap male = true
+// bool marride = false;
