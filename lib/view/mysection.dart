@@ -156,7 +156,7 @@ Widget top(BuildContext context,String img,String dec)
       height: 100,
       decoration:
       BoxDecoration(color: Colors.white,border: Border.all(color: Colors.grey.shade50),borderRadius: BorderRadius.circular(12),boxShadow: [
-        BoxShadow(color: Colors.grey,offset:Offset(0, 4),blurRadius: 10 ),
+        BoxShadow(color: Colors.grey,offset:Offset(0, 8),blurRadius: 10 ),
       ]),
       child: Row(
         children: [
