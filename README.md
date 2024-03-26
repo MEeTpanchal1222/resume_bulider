@@ -32,6 +32,10 @@ This project is a starting point for a Flutter application.
 <img src="https://github.com/MEeTpanchal1222/resume_bulider/assets/143181413/55d1bec7-51e8-41f3-b087-5d973c6a1880" width="400" />
 <img src="https://github.com/MEeTpanchal1222/resume_bulider/assets/143181413/11309e94-f440-4aeb-88af-26ec99a7489e" width="400" />
 <img src="https://github.com/MEeTpanchal1222/resume_bulider/assets/143181413/740ab971-fcca-408b-9b24-86f11c1d95c4" width="400" />
+### Resume
+<img src="(https://github.com/MEeTpanchal1222/resume_bulider/assets/143181413/3ca75136-c518-433f-9619-4f583be63da7)" width="400" />
+
+
 A few resources to get you started if this is your first Flutter project:
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
