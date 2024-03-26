@@ -14,11 +14,11 @@ class editscreen extends StatelessWidget {
 class EDITScreen extends StatefulWidget {
   const EDITScreen({super.key});
   @override
-  State<EDITScreen> createState() => _EDITScreenState();
+  State<EDITScreen> createState() => EDITScreenState();
 }
+double valueofcircal = 0.1;
+class EDITScreenState extends State<EDITScreen> {
 
-class _EDITScreenState extends State<EDITScreen> {
-  double valueofcircal = 0.1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

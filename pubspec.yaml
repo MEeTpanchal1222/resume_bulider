@@ -37,6 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.6
   curved_nav_bar: ^0.0.2
   image_picker: ^1.0.7
+  pdf: any
+  path_provider: any
+  printing: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

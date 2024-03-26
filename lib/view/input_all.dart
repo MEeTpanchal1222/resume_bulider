@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../uitels/coloer.dart';
+import 'mysection.dart';
 
 class inputallscreen extends StatelessWidget {
   const inputallscreen({Key? key});
@@ -45,8 +46,10 @@ TextEditingController Txtyear = TextEditingController();
 TextEditingController Txtdesc2 = TextEditingController();
 TextEditingController Txttech = TextEditingController();
 TextEditingController Txtdesc3 = TextEditingController();
-
-
+TextEditingController Txtskill = TextEditingController();
+TextEditingController Txtdesc4 = TextEditingController();
+TextEditingController Txtspoke = TextEditingController();
+TextEditingController Txtintr = TextEditingController();
 
   bool switchValuemale = false;
   bool switchValueage = false;
@@ -72,6 +75,10 @@ String textFieldyear = '';
 String textFielddesc2 = '';
 String textFieldtech = '';
 String textFielddesc3 = '';
+String textFieldskill = '';
+String textFielddesc4 = '';
+String textFieldspoke = '';
+String textFieldintr = '';
 
 
 
@@ -693,6 +700,7 @@ class InputAllScreenState extends State<InputAllScreen> {
                         InkWell(
                           onTap: () {
                             setState(() {
+                              valueofcircal = 0.2;
                               Navigator.pushNamed(context, '/bottem');
                             });
                           },
@@ -892,6 +900,7 @@ class InputAllScreenState extends State<InputAllScreen> {
                           onTap: () {
                             setState(() {
                               Navigator.pushNamed(context, '/bottem');
+                              valueofcircal = 0.3;
                             });
                           },
                           child: Container(
@@ -968,6 +977,7 @@ class InputAllScreenState extends State<InputAllScreen> {
                           onTap: () {
                             setState(() {
                               Navigator.pushNamed(context, '/bottem');
+                              valueofcircal = 0.4;
                             });
                           },
                           child: Container(
@@ -1087,6 +1097,7 @@ class InputAllScreenState extends State<InputAllScreen> {
                            onTap: () {
                              setState(() {
                                Navigator.pushNamed(context, '/bottem');
+                               valueofcircal = 0.5;
                              });
                            },
                            child: Container(
@@ -1203,6 +1214,7 @@ class InputAllScreenState extends State<InputAllScreen> {
                           onTap: () {
                             setState(() {
                               Navigator.pushNamed(context, '/bottem');
+                              valueofcircal = 0.6;
                             });
                           },
                           child: Container(
@@ -1391,6 +1403,7 @@ class InputAllScreenState extends State<InputAllScreen> {
                           onTap: () {
                             setState(() {
                               Navigator.pushNamed(context, '/bottem');
+                              valueofcircal = 0.7;
                             });
                           },
                           child: Container(
@@ -1518,6 +1531,7 @@ class InputAllScreenState extends State<InputAllScreen> {
                           onTap: () {
                             setState(() {
                               Navigator.pushNamed(context, '/bottem');
+                              valueofcircal = 0.8;
                             });
                           },
                           child: Container(
@@ -1540,25 +1554,288 @@ class InputAllScreenState extends State<InputAllScreen> {
 
 
 
-                Container(
-                  height: 800,
-                  width: 361,
-                  decoration: BoxDecoration(color: Colors.white),
-                ),
-                Container(
-                  height: 800,
-                  width: 361,
-                  decoration: BoxDecoration(color: Colors.white),
-                ),
-                Padding(             //screen 9
+                Padding(           //screen 8
                   padding: const EdgeInsets.all(20),
                   child: Container(
                     height: 800,
                     width: 361,
                     decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10)),
-
+                    child: Column(
+                      children: [
+                        SizedBox(height: 30,),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Text(' SKILL ',
+                              style: TextStyle(fontSize: 15.5,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: Container(
+                            height:66,
+                            width: 350,
+                            decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                            child: TextField(
+                              onChanged: (value) {
+                                setState(() {
+                                  textFieldskill = value; // Store the entered text in the variable
+                                });
+                              },
+                              controller: Txtskill,
+                              onTapOutside: (event) {
+                                FocusManager.instance.primaryFocus!.unfocus();
+                              },
+                              keyboardType: TextInputType.name,
+                              style: TextStyle(
+                                color: Colors.grey.shade800, // Change this to the color you want
+                              ),
+                              decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.offline_bolt_rounded,color: colormeet,size: 30,),
+                                  suffixIcon:  Icon(Icons.more_horiz,color: colormeet,size: 35,),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                      width: 1, color: Colors.black,),
+                                  )
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 5,),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Text(' DESCRIPTION ',
+                              style: TextStyle(fontSize: 15.5,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: Container(
+                            height:233,
+                            width: 350,
+                            decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                            child: TextField(
+                              onChanged: (value) {
+                                setState(() {
+                                  textFielddesc4 = value; // Store the entered text in the variable
+                                });
+                              },
+                              controller: Txtdesc4,
+                              maxLines: 8,
+                              onTapOutside: (event) {
+                                FocusManager.instance.primaryFocus!.unfocus();
+                              },
+                              keyboardType: TextInputType.name,
+                              style: TextStyle(
+                                color: Colors.grey.shade800, // Change this to the color you want
+                              ),
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                      width: 1, color: Colors.black,),
+                                  )
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 30,),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              Navigator.pushNamed(context, '/bottem');
+                              valueofcircal = 0.9;
+                            });
+                          },
+                          child: Container(
+                            height: 80,
+                            width: 330,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: colormeet),
+                            child: Center(
+                              child: Text("SAVE",style: TextStyle(color: Colors.white,fontSize: 40),),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ),//screen 9
+                ),// screen 8
+
+
+
+
+
+
+
+
+
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Container(
+                    height: 450,
+                    width: 361,
+                    decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10)),
+                    child: Column(
+                        children: [
+                          SizedBox(height: 30,),
+                          Row(
+                            children: [
+                              SizedBox(width: 20,),
+                              Icon(Icons.insert_emoticon_rounded,color: colormeet,size: 30,),
+                              SizedBox(width: 10,),
+                              Text(' INTERESTS ',
+                                style: TextStyle(fontSize: 15.5,fontWeight: FontWeight.bold),),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                            child: Container(
+                              height:232,
+                              width: 350,
+                              decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                              child: TextField(
+                                maxLines: 8,
+                                onChanged: (value) {
+                                  setState(() {
+                                    textFieldintr = value; // Store the entered text in the variable
+                                  });
+                                },
+                                controller: Txtintr,
+                                onTapOutside: (event) {
+                                  FocusManager.instance.primaryFocus!.unfocus();
+                                },
+                                keyboardType: TextInputType.name,
+                                style: TextStyle(
+                                  color: Colors.grey.shade800, // Change this to the color you want
+                                ),
+                                decoration: InputDecoration(
+                                    hintText: 'LIKE : Football\nGolf\nBGMI game',
+                                    suffixIcon:  Icon(Icons.more_horiz,color: colormeet,size: 35,),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(10)),
+                                      borderSide: BorderSide(
+                                        width: 1, color: Colors.black,),
+                                    )
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 30,),
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                Navigator.pushNamed(context, '/bottem');
+                              });
+                            },
+                            child: Container(
+                              height: 80,
+                              width: 330,
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: colormeet),
+                              child: Center(
+                                child: Text("SAVE",style: TextStyle(color: Colors.white,fontSize: 40),),
+                              ),
+                            ),
+                          )
+                        ]
+                    ),
+                  ),
+                ),
+
+
+
+
+
+
+
+
+
+
+
+                Padding(             //screen 10
+                  padding: const EdgeInsets.all(20),
+                  child: Container(
+                    height: 500,
+                    width: 361,
+                    decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10)),
+                    child: Column(
+                      children: [
+                      SizedBox(height: 30,),
+                    Row(
+                      children: [
+                        SizedBox(width: 20,),
+                        Icon(Icons.mic,color: colormeet,size: 30,),
+                        SizedBox(width: 10,),
+                        Text(' SPOKEN LANGUAGES ',
+                          style: TextStyle(fontSize: 15.5,fontWeight: FontWeight.bold),),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                      child: Container(
+                        height:232,
+                        width: 350,
+                        decoration: BoxDecoration(color: Color(0xffebebeb),borderRadius: BorderRadius.circular(12)),
+                        child: TextField(
+                          maxLines: 8,
+                          onChanged: (value) {
+                            setState(() {
+                              textFieldspoke = value; // Store the entered text in the variable
+                            });
+                          },
+                          controller: Txtspoke,
+                          onTapOutside: (event) {
+                            FocusManager.instance.primaryFocus!.unfocus();
+                          },
+                          keyboardType: TextInputType.name,
+                          style: TextStyle(
+                            color: Colors.grey.shade800, // Change this to the color you want
+                          ),
+                          decoration: InputDecoration(
+                            hintText: 'hindi\ngijrati\nEnglish',
+                              suffixIcon:  Icon(Icons.more_horiz,color: colormeet,size: 35,),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                    Radius.circular(10)),
+                                borderSide: BorderSide(
+                                  width: 1, color: Colors.black,),
+                              )
+                          ),
+                        ),
+                      ),
+                    ),
+                        SizedBox(height: 30,),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              Navigator.pushNamed(context, '/bottem');
+                              valueofcircal = 0.10;
+                            });
+                          },
+                          child: Container(
+                            height: 80,
+                            width: 330,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: colormeet),
+                            child: Center(
+                              child: Text("SAVE",style: TextStyle(color: Colors.white,fontSize: 40),),
+                            ),
+                          ),
+                        )
+                    ]
+                  ),
+                ),
+                ),//screen 10
+
+
+
+
+
+
+
                 Container(
                   height: 800,
                   width: 361,
