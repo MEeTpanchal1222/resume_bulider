@@ -1,7 +1,8 @@
 import 'dart:io';
-import 'dart:ui';
+import 'dart:typed_data';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
@@ -429,14 +430,325 @@ class _SectionState extends State<BottemScreen> {
   void _previewPDF() async {
     final pdf = pw.Document();
 
+
+    final image = pw.MemoryImage(
+      File(Imagepath as String).readAsBytesSync(),
+    );
+
+
+
+    // Load an image asset as bytes
+    Future<Uint8List> loadImageAsset(String path) async {
+      final byteData = await rootBundle.load(path);
+      return byteData.buffer.asUint8List();
+    }
+
+    final emailIconBytes = await loadImageAsset('assets/email.png');
+    final phoneIconBytes = await loadImageAsset('assets/iphone.png');
+    final pinIconBytes = await loadImageAsset('assets/pin.png');
+
     pdf.addPage(
       pw.Page(
         build: (pw.Context context) {
-          return pw.Column(
-            children: [
+          return
+              pw.Column(
+                mainAxisAlignment: pw.MainAxisAlignment.center,
+                children: [
+                  pw.Container(
+                    height: 550,
+                    width: 400,
+                    color:  PdfColors.white,
+                    child:  pw.Row(
+                      mainAxisAlignment: pw.MainAxisAlignment.start,
+                      children: [
+                        pw.Column(
+                          children: [
+                            pw.SizedBox(
+                                height: 150,width: 120,
+                                child: (Imagepath != null )?pw.Image(image, fit: pw.BoxFit.fill):null),
+                            pw.Stack(
+                                children: [
+                                  pw.Container(
+                                    height: 370,width: 120,
+                                    decoration: pw.BoxDecoration(color: PdfColors.grey400),
+                                  ),
+                                  pw.Column(
+                                    children: [
+                                      pw.SizedBox(height: 10,),
+                                      pw.Row(
+                                        children: [
+                                          pw.Text("Basic Info",style:  pw.TextStyle(fontSize: 13,fontWeight:pw.FontWeight.bold ),),
+                                          pw.SizedBox(width: 38,),
+                                        ],
+                                      ),
+                                      pw.Row(
+                                        mainAxisAlignment:  pw.MainAxisAlignment.center,
+                                        children: [
+                                          pw.SizedBox(height: 40,child:  pw.VerticalDivider(color: PdfColors.black,width: 20,)),
+                                          pw.Column(
+                                            children: [
+                                              pw.Row(
+                                                children: [
+                                                  pw.Text(textFieldnation,style:  pw.TextStyle(fontSize: 10,fontWeight: pw.FontWeight.normal),),
+                                                  pw.Text((male)?' , Male':' , Female',style:  pw.TextStyle(fontSize: 10,fontWeight: pw.FontWeight.normal),),
+                                                ],
+                                              ),
+                                              pw.Row(
+                                                children: [
+                                                  pw.Text(" Marital - ",style:  pw.TextStyle(fontSize: 10,fontWeight: pw.FontWeight.normal)),
+                                                  pw.Text((marride)?'Marride':'Unmarride',style:  pw.TextStyle(fontSize: 10,fontWeight: pw.FontWeight.normal),),
+                                                ],
+                                              ),
+                                              pw.Row(
+                                                children: [
+                                                  pw.Text("DOB - ",style:  pw.TextStyle(fontSize: 10,fontWeight: pw.FontWeight.normal)),
+                                                  pw.Text(textFielddob,style:  pw.TextStyle(fontSize: 10,fontWeight: pw.FontWeight.normal),),
+                                                ],
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                      pw.SizedBox(height: 10,),
+                                      pw.Row(
+                                        children: [
+                                          pw.Text("Technical Skills",style: pw.TextStyle(fontSize: 13,fontWeight: pw.FontWeight.normal),),
+                                          pw.SizedBox(width: 5,)
+                                        ],
+                                      ),
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.center,
+                                        children: [
+                                          pw.SizedBox(height: 40,child: pw.VerticalDivider(color: PdfColors.black,width: 20,)),
+                                          pw.Column(
+                                            children: [
+                                              pw.SizedBox(
+                                                width: 90,
+                                                child: pw.Row(
+                                                  children: [
+                                                    pw.Flexible(child: pw.Text(textFieldtech,style: pw.TextStyle(fontSize: 10,fontWeight: pw.FontWeight.normal,),overflow: pw.TextOverflow.visible)),
+                                                  ],
+                                                ),
+                                              ),
 
-            ],
-          );
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                      pw.SizedBox(height: 10,),
+                                      pw.Row(
+                                        children: [
+                                          pw.Text(" Skills ",style: pw.TextStyle(fontSize: 13,fontWeight: pw.FontWeight.normal),),
+                                          pw.SizedBox(width: 60,),
+                                        ],
+                                      ),
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.center,
+                                        children: [
+                                          pw.SizedBox(height: 40,child: pw.VerticalDivider(color: PdfColors.black,width: 20,)),
+                                          pw.Column(
+                                            children: [
+                                              pw.SizedBox(
+                                                width: 90,
+                                                child: pw.Row(
+                                                  children: [
+                                                    pw.Flexible(child: pw.Text(textFieldskill,style: pw.TextStyle(fontSize: 10,fontWeight: pw.FontWeight.normal,),overflow: pw.TextOverflow.visible)),
+                                                  ],
+                                                ),
+                                              ),
+
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                      pw.SizedBox(height: 10,),
+                                      pw.Row(
+                                        children: [
+                                          pw.Text("Spoken Language",style: pw.TextStyle(fontSize: 13,fontWeight: pw.FontWeight.normal),),
+                                        ],
+                                      ),
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.center,
+                                        children: [
+                                          pw.SizedBox(height: 40,child: pw.VerticalDivider(color: PdfColors.black,width: 20,)),
+                                          pw.Column(
+                                            children: [
+                                              pw.SizedBox(
+                                                width: 95,
+                                                child: pw.Row(
+                                                  children: [
+                                                    pw.Flexible(child: pw.Text(textFieldspoke,style: pw.TextStyle(fontSize: 10,fontWeight: pw.FontWeight.normal,),overflow: pw.TextOverflow.visible)),
+                                                  ],
+                                                ),
+                                              ),
+
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                      pw.SizedBox(height: 10,),
+                                      pw.Row(
+                                        children: [
+                                          pw.Text("Interest",style: pw.TextStyle(fontSize: 13,fontWeight: pw.FontWeight.normal),),
+                                          pw.SizedBox(width: 50,)
+                                        ],
+                                      ),
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.center,
+                                        children: [
+                                          pw.SizedBox(height: 40,child: pw.VerticalDivider(color: PdfColors.black,width: 20,)),
+                                          pw.Column(
+                                            children: [
+                                              pw.SizedBox(
+                                                width: 95,
+                                                child: pw.Row(
+                                                  children: [
+                                                    pw.Flexible(child: pw.Text(textFieldintr,style: pw.TextStyle(fontSize: 10,fontWeight: pw.FontWeight.normal,),overflow: pw.TextOverflow.visible)),
+                                                  ],
+                                                ),
+                                              ),
+
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ],
+                                  )
+                                ]
+                            ),
+                          ],
+                        ),
+                        pw.Align(
+                          alignment: pw.Alignment.topCenter,
+                          child: pw.Column(
+                            children: [
+                              pw.Container(
+                                height: 80,width: 280,
+                                decoration: pw.BoxDecoration(color: PdfColors.grey700),
+                                child: pw.Column(
+                                  mainAxisAlignment: pw.MainAxisAlignment.center,
+                                  children: [
+                                    pw.Text(textFieldname,style: pw.TextStyle(fontSize: 30,color: PdfColors.white),),
+                                    pw.Row(
+                                      children: [
+                                        pw.SizedBox(width: 5),
+                                        pw.Image(pw.MemoryImage(emailIconBytes), height: 15, width: 15),
+                                        pw.SizedBox(width: 5),
+                                        pw.Text(textFieldmail, style: pw.TextStyle(color: PdfColors.white, fontSize: 9)),
+                                        pw.SizedBox(width: 8),
+                                        pw.Image(pw.MemoryImage(phoneIconBytes), height: 15, width: 15),
+                                        pw.SizedBox(width: 5),
+                                        pw.Text(textFieldphone, style: pw.TextStyle(color: PdfColors.white, fontSize: 9)),
+                                        pw.SizedBox(width: 8),
+                                        pw.Image(pw.MemoryImage(pinIconBytes), height: 15, width: 15),
+                                        pw.SizedBox(width: 5),
+                                        pw.Text(textFieldloction, style: pw.TextStyle(color: PdfColors.white, fontSize: 9)),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                              pw.SizedBox(height: 15,),
+                              pw.Column(
+                                children: [
+                                  pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment.start,
+                                    children: [
+                                      pw.Text(textFieldprofile,style: pw.TextStyle(color: PdfColors.blue700,fontWeight: pw.FontWeight.normal,fontSize: 15)),
+                                      pw.SizedBox(width: 90,),
+                                    ],
+                                  ),
+                                  pw.SizedBox(
+                                    width: 250,
+                                    child: pw.Row(
+                                      children: [
+                                        pw.Flexible(child :pw.Text(textFieldintro,style: pw.TextStyle(color: PdfColors.black,fontSize: 10)
+                                            ,overflow: pw.TextOverflow.visible)),
+                                      ],
+                                    ),
+                                  ),
+                                  pw.SizedBox(height: 10,),
+                                  pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment.start,
+                                    children: [
+                                      pw.Text('Honors & Awards',style: pw.TextStyle(color: PdfColors.blue700,fontWeight: pw.FontWeight.normal,fontSize: 15)),
+                                      pw.SizedBox(width: 140,),
+                                    ],
+                                  ),
+                                  pw.SizedBox(width: 280,child: pw.Divider(color: PdfColors.grey,thickness: 4,)),
+                                  pw.SizedBox(
+                                    height: 80,
+                                    width: 250,
+                                    child: pw.Row(
+                                      children: [
+                                        pw.Text(textFieldyear,style: pw.TextStyle(color: PdfColors.black,fontSize: 13)),
+                                        pw.SizedBox(child: pw.VerticalDivider(color: PdfColors.grey,thickness: 4,)),
+                                        pw.Flexible(child :pw.Column(
+                                          children: [
+                                            pw.Text(textFieldachi,style: pw.TextStyle(fontWeight: pw.FontWeight.normal),),
+                                            pw.Text(textFielddesc2,style: pw.TextStyle(color: PdfColors.black,fontSize: 10)
+                                                ,overflow: pw.TextOverflow.visible),
+                                          ],
+                                        )),
+                                      ],
+                                    ),
+                                  ),
+                                  pw.SizedBox(height: 10,),
+                                  pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment.start,
+                                    children: [
+                                      pw.Text('Position of Responsibility',style: pw.TextStyle(color: PdfColors.blue700,fontWeight: pw.FontWeight.normal,fontSize: 15)),
+                                      pw.SizedBox(width: 90,),
+                                    ],
+                                  ),
+                                  pw.SizedBox(width: 280,child: pw.Divider(color: PdfColors.grey,thickness: 4,)),
+                                  pw.SizedBox(
+                                    height: 50,
+                                    width: 250,
+                                    child: pw.Column(
+                                      children: [
+                                        pw.Text(textFielddesi,style: pw.TextStyle(fontWeight: pw.FontWeight.normal),),
+                                        pw.Flexible(child :
+                                        pw.Text(textFielddesc,style: pw.TextStyle(color: PdfColors.black,fontSize: 10)
+                                            ,overflow: pw.TextOverflow.visible),
+
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  pw.SizedBox(height:20,),
+                                  pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment.start,
+                                    children: [
+                                      pw.Text('Tecnical Skill',style: pw.TextStyle(color: PdfColors.blue700,fontWeight: pw.FontWeight.normal,fontSize: 15)),
+                                      pw.SizedBox(width: 170,),
+                                    ],
+                                  ),
+                                  pw.SizedBox(width: 280,child: pw.Divider(color: PdfColors.grey,thickness: 4,)),
+                                  pw.SizedBox(
+                                    height: 50,
+                                    width: 250,
+                                    child: pw.Column(
+                                      children: [
+                                        pw.Flexible(child :
+                                        pw.Text(textFielddesc3,style: pw.TextStyle(color: PdfColors.black,fontSize: 10)
+                                            ,overflow: pw.TextOverflow.visible),
+
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              );
         },
       ),
     );

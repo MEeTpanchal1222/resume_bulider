@@ -6,10 +6,10 @@ import 'package:resume_bulider/view/mysection.dart';
 import 'package:resume_bulider/view/section.dart';
 import 'package:resume_bulider/view/slashscreen.dart';
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(//to fix statusebar color in app;
     statusBarColor: Color(0xFF50457d),
   ));
-  runApp(Resumebuiderapp());
+  runApp(Resumebuiderapp());//to run app
 }
 class Resumebuiderapp extends StatelessWidget {
   const Resumebuiderapp({super.key});
